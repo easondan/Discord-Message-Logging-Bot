@@ -27,7 +27,7 @@ async def on_message(message):
   content = message.content
   channel = message.channel
   id = message.id
-  channel2 = client.get_channel(855012308916109324)
+  channel2 = client.get_channel(insert discord channel id)
   f = open("messages.txt", "a")
   f.write("{} {} {} {}\n".format(id,author,content,channel))
   await channel2.send('\n-------------------\nUser: {}  \nContent: "{}"  \nChannel: {}'.format(author,content,channel))
@@ -42,7 +42,7 @@ async def on_message_delete(message):
   content = message.content
   channel = message.channel
   id = message.id
-  channel2 = client.get_channel(855012101385748490)
+  channel2 = client.get_channel(insert discord channel id)
   f = open("deleteMessage.txt", "a")
   f.write("{} {} {} {}\n".format(id,author,content,channel))
   await channel2.send('\n-------------------\nDeleted message: \nUser: {}  \nContent: "{}"  \nChannel: {}'.format(author,content,channel))
@@ -56,7 +56,7 @@ async def on_message_edit(before,after):
   content_before = before.content
   content_after = after.content
   channel = before.channel
-  channel2 = client.get_channel(855012101385748490)
+  channel2 = client.get_channel(insert discord channel id)
   f = open("editMessage.txt", "a")
   f.write("{} {} {} {} {}\n".format(id,author,content_before,content_after,channel))
   await channel2.send('\n-------------------\nEdit Message: \nUser: {} \n Before: "{}" \n After: "{}" \n Channel:{}'.format(author,content_before,content_after,channel))
@@ -68,18 +68,3 @@ client.run(os.getenv('TOKEN'))
 
 
 
-
-
-  # counter= 0 
-  # with open("spam_detect.txt","r+") as file:
-  #     for lines in file:
-  #       if lines.strip("\n")==str(message.author.id):
-  #         counter+=1
-
-  #     file.writelines(f"{str(message.author.id)}\n")    
-  #     if counter > 5:
-  #       await message.guild.ban(message.author,reason="spam")
-  #       await asyncio.sleep(1)
-  #       await message.guild.unban(message.author)
-        
-  #       print("Uh oh")
